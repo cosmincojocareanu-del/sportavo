@@ -34,7 +34,7 @@ tailwind.config = {
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     background: #0B0F14;
     color: #F5F5F0;
@@ -224,6 +224,93 @@ tailwind.config = {
   .prob-icon-ok { color: #C9A227; font-weight: 700; }
 
   /* Case B RO spans are hidden via inline style in HTML — no global rule needed */
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE
+  ══════════════════════════════════════════ */
+
+  /* Images never overflow */
+  img { max-width: 100%; height: auto; }
+
+  /* ── Phones mockup: hide side phones, center only ── */
+  @media (max-width: 768px) {
+    .phones-flex .phone-mockup:first-child,
+    .phones-flex .phone-mockup:last-child {
+      display: none;
+    }
+    .phones-flex .phone-mockup {
+      width: min(82vw, 260px) !important;
+      transform: none !important;
+    }
+    .phones-flex {
+      gap: 0 !important;
+    }
+  }
+
+  /* ── Nav: fit logo + lang + button on small screens ── */
+  @media (max-width: 480px) {
+    .nav-inner {
+      padding: 0.85rem 1rem;
+      gap: 0.5rem;
+    }
+    .nav-cta {
+      font-size: 0.7rem;
+      padding: 0.4rem 0.7rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo img {
+      width: 70px !important;
+    }
+  }
+
+  /* ── Form: single column ── */
+  @media (max-width: 640px) {
+    #apply-form {
+      grid-template-columns: 1fr !important;
+    }
+    #apply-form > div {
+      grid-column: 1 !important;
+    }
+    .form-card {
+      padding: 1.25rem !important;
+      border-radius: 0.875rem !important;
+    }
+  }
+
+  /* ── Pricing: ensure cards don't overflow ── */
+  @media (max-width: 640px) {
+    .pricing-card {
+      min-width: unset;
+    }
+  }
+
+  /* ── Footer: single column ── */
+  @media (max-width: 640px) {
+    footer .max-w-6xl > div:first-child {
+      grid-template-columns: 1fr !important;
+    }
+    footer .max-w-6xl > div:last-child {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+
+  /* ── CTA buttons: full width on very small screens ── */
+  @media (max-width: 420px) {
+    .btn-primary, .btn-ghost {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ── General: prevent any section from overflowing ── */
+  @media (max-width: 768px) {
+    section, footer, nav {
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+  }
 </style>
 </head>
 
@@ -233,7 +320,7 @@ tailwind.config = {
 <nav>
   <div class="nav-inner max-w-7xl mx-auto">
     <a href="#" class="nav-logo" style="display:flex;align-items:center;">
-      <img src="assets/logo-sportavo.png" alt="Sportavo" width="130" style="height:auto;display:block;max-width:110px;"
+      <img src="assets/logo-sportavo.png" alt="Sportavo" style="width:90px;max-height:44px;object-fit:contain;display:block;"
         onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
       <span style="display:none;">Sport<span style="color:#C9A227;">avo</span></span>
     </a>
@@ -500,7 +587,7 @@ tailwind.config = {
       </p>
     </div>
 
-    <div class="fade-up" style="display:flex;justify-content:center;align-items:flex-end;gap:2rem;flex-wrap:wrap;">
+    <div class="fade-up phones-flex" style="display:flex;justify-content:center;align-items:flex-end;gap:2rem;flex-wrap:wrap;">
 
       <!-- Phone 1 — rotit stanga -->
       <div class="phone-mockup" style="transform:rotate(-6deg) translateY(20px);width:190px;">
@@ -753,7 +840,7 @@ tailwind.config = {
 
     <div class="fade-up" style="display:grid;grid-template-columns:1fr;gap:2rem;max-width:56rem;margin:0 auto;">
       <!-- Form card -->
-      <div style="background:#151A21;border:1px solid #232A33;border-radius:1.25rem;padding:2.5rem;">
+      <div class="form-card" style="background:#151A21;border:1px solid #232A33;border-radius:1.25rem;padding:2.5rem;">
         <form id="apply-form" onsubmit="handleApplyForm(event)" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
 
           <!-- Athlete name -->
@@ -1005,7 +1092,7 @@ function handleApplyForm(e) {
 
       <div>
         <div style="margin-bottom:0.75rem;">
-          <img src="assets/logo-sportavo.png" alt="Sportavo" width="150" style="height:auto;display:block;"
+          <img src="assets/logo-sportavo.png" alt="Sportavo" style="width:120px;max-height:90px;object-fit:contain;display:block;"
             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <div class="nav-logo" style="display:none;font-size:1.4rem;">Sport<span style="color:#C9A227;">avo</span></div>
         </div>

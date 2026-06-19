@@ -231,7 +231,11 @@ tailwind.config = {
 <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
 <nav>
   <div class="nav-inner max-w-7xl mx-auto">
-    <a href="#" class="nav-logo">Sport<span>avo</span></a>
+    <a href="#" class="nav-logo" style="display:flex;align-items:center;">
+      <img src="assets/logo-sportavo.svg" alt="Sportavo" width="130" style="height:auto;display:block;"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span style="display:none;">Sport<span style="color:#C9A227;">avo</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#features" data-en="Features" data-ro="Ce include">Features</a></li>
       <li><a href="#packages" data-en="Packages" data-ro="Pachete">Packages</a></li>
@@ -244,7 +248,7 @@ tailwind.config = {
         <span style="color:#232A33;font-size:0.75rem;">|</span>
         <button class="lang-btn" onclick="setLang('ro')">RO</button>
       </div>
-      <a href="#packages" class="nav-cta" data-en="Get started" data-ro="Începe acum">Get started</a>
+      <a href="#apply" class="nav-cta" data-en="Get started" data-ro="Începe acum">Get started</a>
     </div>
   </div>
 </nav>
@@ -639,9 +643,9 @@ tailwind.config = {
           </div>
         </div>
 
-        <a href="#founding" class="btn-ghost" style="width:100%;justify-content:center;">
-          <span data-en>Apply for a spot</span>
-          <span data-ro style="display:none;">Aplică pentru un loc</span>
+        <a href="#apply" class="btn-ghost" style="width:100%;justify-content:center;">
+          <span data-en>Apply for Primii 11</span>
+          <span data-ro style="display:none;">Aplică pentru Primii 11</span>
         </a>
       </div>
 
@@ -668,9 +672,9 @@ tailwind.config = {
           <div style="font-size:0.78rem;color:#A7A7A7;"><span class="check">✦</span><span data-en>Year 1 management included</span><span data-ro style="display:none;">Administrare Anul 1 inclusă</span></div>
         </div>
 
-        <a href="mailto:hello@sportavo.pro" class="btn-ghost" style="width:100%;justify-content:center;">
-          <span data-en>Get started</span>
-          <span data-ro style="display:none;">Începe acum</span>
+        <a href="#apply" class="btn-ghost" style="width:100%;justify-content:center;">
+          <span data-en>Request Standard</span>
+          <span data-ro style="display:none;">Cere pachetul Standard</span>
         </a>
       </div>
 
@@ -717,9 +721,9 @@ tailwind.config = {
           </div>
         </div>
 
-        <a href="mailto:hello@sportavo.pro" class="btn-primary" style="width:100%;justify-content:center;">
-          <span data-en>Get started</span>
-          <span data-ro style="display:none;">Începe acum</span>
+        <a href="#apply" class="btn-primary" style="width:100%;justify-content:center;">
+          <span data-en>Request Elite</span>
+          <span data-ro style="display:none;">Cere pachetul Elite</span>
         </a>
       </div>
 
@@ -728,6 +732,177 @@ tailwind.config = {
 </section>
 
 <div class="divider" style="max-width:56rem;margin:0 auto;"></div>
+
+
+<!-- ═══════════════════════════ APPLY SECTION ═══════════════════════════ -->
+<section id="apply" style="padding:100px 0;">
+  <div style="max-width:72rem;margin:0 auto;padding:0 1.5rem;">
+
+    <div class="fade-up" style="text-align:center;margin-bottom:3rem;">
+      <div data-en="Apply" data-ro="Aplică" style="display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#C9A227;background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);padding:0.35rem 1rem;border-radius:999px;margin-bottom:1.25rem;">Apply</div>
+      <h2 style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#F5F5F0;margin-bottom:1rem;">
+        <span data-en>Apply for your Sportavo profile.</span>
+        <span data-ro style="display:none;">Aplică pentru profilul tău Sportavo.</span>
+      </h2>
+      <p style="font-size:1.05rem;color:#A7A7A7;max-width:40rem;margin:0 auto;line-height:1.7;">
+        <span data-en>Send us your details. After your request, we confirm the domain, the package and the next steps before payment.</span>
+        <span data-ro style="display:none;">Trimite-ne detaliile. După cerere, confirmăm domeniul, pachetul și pașii următori înainte de plată.</span>
+      </p>
+    </div>
+
+    <div class="fade-up" style="display:grid;grid-template-columns:1fr;gap:2rem;max-width:56rem;margin:0 auto;">
+      <!-- Form card -->
+      <div style="background:#151A21;border:1px solid #232A33;border-radius:1.25rem;padding:2.5rem;">
+        <form id="apply-form" onsubmit="handleApplyForm(event)" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+
+          <!-- Athlete name -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Athlete name" data-ro="Nume sportiv" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Athlete name</label>
+            <input type="text" name="athlete_name" placeholder="Your full name" data-placeholder-en="Your full name" data-placeholder-ro="Numele complet" required
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Sport -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Sport" data-ro="Sport" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Sport</label>
+            <input type="text" name="sport" placeholder="e.g. Football" data-placeholder-en="e.g. Football" data-placeholder-ro="ex. Fotbal" required
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Position -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Position" data-ro="Poziție" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Position</label>
+            <input type="text" name="position" placeholder="e.g. Midfielder" data-placeholder-en="e.g. Midfielder" data-placeholder-ro="ex. Mijlocaș"
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Current club -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Current club" data-ro="Club actual" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Current club</label>
+            <input type="text" name="club" placeholder="Club name or Free agent" data-placeholder-en="Club name or Free agent" data-placeholder-ro="Numele clubului sau liber de contract"
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Instagram / TikTok -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Instagram or TikTok" data-ro="Instagram sau TikTok" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Instagram or TikTok</label>
+            <input type="text" name="social" placeholder="@handle" data-placeholder-en="@handle" data-placeholder-ro="@cont"
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Email -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Email" data-ro="Email" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Email</label>
+            <input type="email" name="email" placeholder="you@example.com" data-placeholder-en="you@example.com" data-placeholder-ro="email@exemplu.com" required
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- WhatsApp -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="WhatsApp" data-ro="WhatsApp" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">WhatsApp</label>
+            <input type="tel" name="whatsapp" placeholder="+40 7xx xxx xxx"
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Preferred package -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label data-en="Preferred package" data-ro="Pachet dorit" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Preferred package</label>
+            <select name="package"
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;cursor:pointer;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+              <option value="" data-en="Select a package" data-ro="Selectează pachetul" style="background:#151A21;">Select a package</option>
+              <option value="Founding Eleven — 199€" style="background:#151A21;">Founding Eleven — 199 €</option>
+              <option value="Standard — 299€" style="background:#151A21;">Standard — 299 €</option>
+              <option value="Elite — 399€" style="background:#151A21;">Elite — 399 €</option>
+            </select>
+          </div>
+
+          <!-- Preferred domain — full width -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;grid-column:1/-1;">
+            <label data-en="Preferred domain" data-ro="Domeniu dorit" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Preferred domain</label>
+            <input type="text" name="domain" placeholder="e.g. lucapop.pro or lucapop.ro" data-placeholder-en="e.g. lucapop.pro or lucapop.ro" data-placeholder-ro="ex. nume-prenume.ro sau .com"
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'">
+          </div>
+
+          <!-- Message — full width -->
+          <div style="display:flex;flex-direction:column;gap:0.4rem;grid-column:1/-1;">
+            <label data-en="Message" data-ro="Mesaj" style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A7A7A7;">Message</label>
+            <textarea name="message" rows="4" placeholder="Anything else you'd like us to know..." data-placeholder-en="Anything else you'd like us to know..." data-placeholder-ro="Alte detalii pe care vrei să le știm..."
+              style="background:#0B0F14;border:1px solid #232A33;border-radius:0.5rem;padding:0.75rem 1rem;color:#F5F5F0;font-size:0.95rem;font-family:'Manrope',sans-serif;outline:none;transition:border-color 0.2s;resize:vertical;"
+              onfocus="this.style.borderColor='#C9A227'" onblur="this.style.borderColor='#232A33'"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div style="grid-column:1/-1;">
+            <button type="submit"
+              style="width:100%;background:linear-gradient(135deg,#C9A227,#D8B13C);color:#0B0F14;font-family:'Sora',sans-serif;font-weight:700;font-size:0.95rem;letter-spacing:0.05em;padding:1rem 2rem;border-radius:0.625rem;border:none;cursor:pointer;transition:opacity 0.2s,transform 0.15s;box-shadow:0 4px 20px rgba(201,162,39,0.3);"
+              onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-1px)'"
+              onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+              <span data-en>Send request</span>
+              <span data-ro style="display:none;">Trimite cererea</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function handleApplyForm(e) {
+  e.preventDefault();
+  const f = e.target;
+  const ro = currentLang === 'ro';
+  const L = ro ? {
+    athlete : 'Nume sportiv',
+    sport   : 'Sport',
+    position: 'Poziție',
+    club    : 'Club actual',
+    social  : 'Instagram sau TikTok',
+    email   : 'Email',
+    whatsapp: 'WhatsApp',
+    pkg     : 'Pachet dorit',
+    domain  : 'Domeniu dorit',
+    message : 'Mesaj'
+  } : {
+    athlete : 'Athlete name',
+    sport   : 'Sport',
+    position: 'Position',
+    club    : 'Current club',
+    social  : 'Instagram or TikTok',
+    email   : 'Email',
+    whatsapp: 'WhatsApp',
+    pkg     : 'Preferred package',
+    domain  : 'Preferred domain',
+    message : 'Message'
+  };
+  const body = [
+    L.athlete  + ': ' + f.athlete_name.value,
+    L.sport    + ': ' + f.sport.value,
+    L.position + ': ' + f.position.value,
+    L.club     + ': ' + f.club.value,
+    L.social   + ': ' + f.social.value,
+    L.email    + ': ' + f.email.value,
+    L.whatsapp + ': ' + f.whatsapp.value,
+    L.pkg      + ': ' + f.package.value,
+    L.domain   + ': ' + f.domain.value,
+    L.message  + ': ' + f.message.value
+  ].join('\n');
+  window.location.href = 'mailto:hello@sportavo.pro'
+    + '?subject=' + encodeURIComponent('Sportavo profile request')
+    + '&body=' + encodeURIComponent(body);
+}
+</script>
 
 
 <!-- ═══════════════════════════ FOUNDING ELEVEN ═══════════════════════════ -->
@@ -776,8 +951,8 @@ tailwind.config = {
     </div>
 
     <div class="fade-up" style="margin-bottom:1rem;">
-      <a href="mailto:hello@sportavo.pro" class="btn-primary" style="font-size:0.95rem;padding:1rem 2.5rem;">
-        <span data-en>Apply for a founding spot</span>
+      <a href="#apply" class="btn-primary" style="font-size:0.95rem;padding:1rem 2.5rem;">
+        <span data-en>Apply for Primii 11</span>
         <span data-ro style="display:none;">Aplică pentru Primii 11</span>
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -807,7 +982,7 @@ tailwind.config = {
         <span data-ro style="display:none;">Alătură-te sportivilor care dețin controlul identității lor online. Alege un plan și începe astăzi.</span>
       </p>
       <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;">
-        <a href="#packages" class="btn-primary" style="font-size:0.95rem;padding:1rem 2.5rem;">
+        <a href="#apply" class="btn-primary" style="font-size:0.95rem;padding:1rem 2.5rem;">
           <span data-en>Get started</span>
           <span data-ro style="display:none;">Începe acum</span>
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -828,7 +1003,11 @@ tailwind.config = {
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-bottom:3rem;">
 
       <div>
-        <div class="nav-logo" style="margin-bottom:0.75rem;font-size:1.4rem;">Sport<span style="color:#C9A227;">avo</span></div>
+        <div style="margin-bottom:0.75rem;">
+          <img src="assets/logo-sportavo.svg" alt="Sportavo" width="140" style="height:auto;display:block;"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="nav-logo" style="display:none;font-size:1.4rem;">Sport<span style="color:#C9A227;">avo</span></div>
+        </div>
         <p style="font-size:0.8rem;color:#A7A7A7;line-height:1.65;max-width:220px;">
           <span data-en>Premium personal websites for athletes.</span>
           <span data-ro style="display:none;">Site-uri personale premium pentru sportivi.</span>
@@ -850,11 +1029,21 @@ tailwind.config = {
       <div>
         <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:#A7A7A7;font-weight:700;margin-bottom:1rem;" data-en="Contact" data-ro="Contact">Contact</div>
         <a href="mailto:hello@sportavo.pro" style="font-size:0.82rem;color:#A7A7A7;text-decoration:none;display:block;margin-bottom:0.6rem;transition:color 0.2s;" onmouseover="this.style.color='#C9A227'" onmouseout="this.style.color='#A7A7A7'">hello@sportavo.pro</a>
-        <div style="display:flex;gap:0.75rem;margin-top:1rem;">
-          <a href="#" style="width:34px;height:34px;border:1px solid #232A33;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7A7A7;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#C9A227';this.style.color='#C9A227'" onmouseout="this.style.borderColor='#232A33';this.style.color='#A7A7A7'">
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <!-- Instagram — update href when page is ready -->
+          <a href="#" aria-label="Instagram" style="width:34px;height:34px;border:1px solid #232A33;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7A7A7;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#C9A227';this.style.color='#C9A227'" onmouseout="this.style.borderColor='#232A33';this.style.color='#A7A7A7'">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="#" style="width:34px;height:34px;border:1px solid #232A33;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7A7A7;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#C9A227';this.style.color='#C9A227'" onmouseout="this.style.borderColor='#232A33';this.style.color='#A7A7A7'">
+          <!-- TikTok — update href when page is ready -->
+          <a href="#" aria-label="TikTok" style="width:34px;height:34px;border:1px solid #232A33;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7A7A7;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#C9A227';this.style.color='#C9A227'" onmouseout="this.style.borderColor='#232A33';this.style.color='#A7A7A7'">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          </a>
+          <!-- Facebook — update href when page is ready -->
+          <a href="#" aria-label="Facebook" style="width:34px;height:34px;border:1px solid #232A33;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7A7A7;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#C9A227';this.style.color='#C9A227'" onmouseout="this.style.borderColor='#232A33';this.style.color='#A7A7A7'">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <!-- LinkedIn — update href when page is ready -->
+          <a href="#" aria-label="LinkedIn" style="width:34px;height:34px;border:1px solid #232A33;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7A7A7;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#C9A227';this.style.color='#C9A227'" onmouseout="this.style.borderColor='#232A33';this.style.color='#A7A7A7'">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
         </div>
@@ -906,6 +1095,13 @@ function setLang(lang) {
     if (!el.hasAttribute('data-en')) {
       el.style.display = lang === 'ro' ? '' : 'none';
     }
+  });
+
+  // ── Placeholders ──
+  document.querySelectorAll('[data-placeholder-en][data-placeholder-ro]').forEach(el => {
+    el.placeholder = lang === 'ro'
+      ? el.getAttribute('data-placeholder-ro')
+      : el.getAttribute('data-placeholder-en');
   });
 
   // ── Update language buttons ──
